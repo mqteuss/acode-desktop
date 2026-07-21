@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080a0b">
+  <meta name="description" content="ACode conecta o ChatGPT aos seus projetos locais com permissões explícitas, terminal controlado, histórico reversível e validação real.">
+  <meta property="og:title" content="ACode — ChatGPT executando no seu projeto local">
+  <meta property="og:description" content="Inspecione, edite, teste e compile projetos locais com controle, evidências e segurança por arquitetura.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/product-overview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>ACode — Download e configuração completa</title>
+  <link rel="icon" href="assets/acode-icon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="effects.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <div class="download-toast" id="download-toast" role="status" aria-live="polite" hidden>
+    <span class="download-toast-icon" aria-hidden="true">↓</span>
+    <span><strong>Download iniciado</strong><small>O instalador será salvo pelo seu navegador.</small></span>
+  </div>
+
+  <header class="site-header" id="inicio">
+    <div class="shell header-inner">
+      <a class="brand" href="#inicio" aria-label="ACode, início">
+        <img src="assets/acode-logo.png" alt="ACode" width="116" height="116">
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="#produto">Produto</a>
+        <a href="#comparativo">Comparativo</a>
+        <a href="#instalacao">Configuração</a>
+        <a href="#seguranca">Segurança</a>
+      </nav>
+      <a class="header-action" href="#instalacao">Configurar</a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero section">
+      <div class="shell hero-grid">
+        <div class="hero-copy reveal" data-reveal>
+          <p class="eyebrow">ACode 1.0 · Windows x64</p>
+          <h1>Seu projeto local.<br><span>O ChatGPT executando de verdade.</span></h1>
+          <p class="hero-lead">O ACode é a ponte local que permite ao ChatGPT pesquisar arquivos, editar código, executar terminal, testar, compilar e entregar artefatos apenas dentro das pastas que você autorizou.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#instalacao">Instalar e configurar</a>
+            <a class="button secondary" href="#comparativo">Comparar experiências</a>
+          </div>
+          <ul class="trust-list" aria-label="Destaques">
+            <li>115 ferramentas MCP</li>
+            <li>Permissões por projeto</li>
+            <li>Alterações reversíveis</li>
+            <li>Testes verificáveis</li>
+          </ul>
+        </div>
+        <figure class="product-frame hero-product reveal" data-reveal>
+          <button class="image-preview-button" id="preview-overview" type="button" data-preview="assets/product-overview.png" data-preview-alt="Interface do ACode exibindo uma conversa operacional e arquivos alterados" data-preview-caption="Execução observável: conversa, progresso, validações e arquivos alterados no projeto selecionado." aria-label="Ampliar captura da interface principal do ACode">
+            <img src="assets/product-overview.png" alt="Interface do ACode exibindo uma conversa operacional e arquivos alterados" width="1280" height="800">
+            <span class="preview-hint" aria-hidden="true">Ampliar</span>
+          </button>
+          <figcaption><strong>Execução observável</strong><span>Conversa, progresso, validações e arquivos alterados no projeto selecionado.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section compact-section" aria-label="Princípio do produto">
+      <div class="shell principle">
+        <span class="principle-index">01</span>
+        <p>O ChatGPT continua sendo a inteligência. O ACode fornece acesso local controlado, execução real e provas do resultado.</p>
+      </div>
+    </section>
+
+    <section class="section" id="produto">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">Trabalho real, sem caixa-preta</p>
+          <h2>Do pedido à entrega, com cada etapa visível.</h2>
+          <p>O ACode mantém contexto, operação e evidência vinculados ao projeto correto, sem misturar conversas, processos ou objetivos de outras pastas.</p>
+        </div>
+        <div class="capability-grid">
+          <article><span>01</span><h3>Projeto confinado</h3><p>Somente pastas autorizadas localmente entram no workspace. Traversal, symlinks de escape e caminhos absolutos são recusados.</p></article>
+          <article><span>02</span><h3>Permissão explícita</h3><p>Escolha Somente leitura, Assistido ou Autônomo. As proteções estruturais continuam ativas em todos os modos.</p></article>
+          <article><span>03</span><h3>Execução verificável</h3><p>Testes, builds, terminal, Git, arquivos e artefatos retornam estado e evidência, não apenas uma mensagem de sucesso.</p></article>
+          <article><span>04</span><h3>Histórico reversível</h3><p>Gravações são atômicas, alterações recebem backup local e ações destrutivas exigem política e confirmação adequadas.</p></article>
+          <article><span>05</span><h3>Objetivos persistentes</h3><p>Planos, critérios, etapas, decisões, checkpoints e validações continuam disponíveis entre sessões.</p></article>
+          <article><span>06</span><h3>Atualização nativa</h3><p>O aplicativo consulta releases estáveis no GitHub, verifica o SHA-256 e só inicia o instalador após sua confirmação.</p></article>
+        </div>
+        <div class="visual-pair">
+          <figure class="product-frame reveal" data-reveal>
+            <button class="image-preview-button" id="preview-diff" type="button" data-preview="assets/live-diff.png" data-preview-alt="Painel do ACode com atividade ao vivo e diferenças de arquivos" data-preview-caption="Diferenças locais: veja o que foi criado ou editado enquanto o trabalho acontece." aria-label="Ampliar captura de diferenças locais">
+              <img src="assets/live-diff.png" alt="Painel do ACode com atividade ao vivo e diferenças de arquivos" width="1280" height="800">
+              <span class="preview-hint" aria-hidden="true">Ampliar</span>
+            </button>
+            <figcaption><strong>Diferenças locais</strong><span>Veja o que foi criado ou editado enquanto o trabalho acontece.</span></figcaption>
+          </figure>
+          <figure class="product-frame reveal" data-reveal>
+            <button class="image-preview-button" id="preview-tools" type="button" data-preview="assets/tools.png" data-preview-alt="Catálogo de ferramentas disponíveis no ACode" data-preview-caption="Ferramentas auditáveis: capacidades tipadas, limitadas e expostas pelo MCP." aria-label="Ampliar captura do catálogo de ferramentas">
+              <img src="assets/tools.png" alt="Catálogo de ferramentas disponíveis no ACode" width="1280" height="800">
+              <span class="preview-hint" aria-hidden="true">Ampliar</span>
+            </button>
+            <figcaption><strong>Ferramentas auditáveis</strong><span>Capacidades tipadas, limitadas e expostas pelo MCP.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section comparison-section" id="comparativo">
+      <div class="shell">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Comparativo direto</p>
+          <h2>ChatGPT no navegador e ChatGPT usando ACode não são a mesma experiência.</h2>
+          <p>O ACode não substitui o ChatGPT. Ele adiciona uma camada local de ferramentas, segurança e execução.</p>
+        </div>
+        <div class="comparison-table" role="table" aria-label="Comparação entre ChatGPT sozinho e ChatGPT com ACode">
+          <div class="comparison-row comparison-head" role="row">
+            <div role="columnheader">Capacidade</div>
+            <div role="columnheader">ChatGPT no navegador</div>
+            <div role="columnheader">ChatGPT + ACode</div>
+          </div>
+          <div class="comparison-row" role="row"><div role="cell">Arquivos locais</div><div role="cell">Depende de uploads manuais e trechos enviados.</div><div role="cell">Pesquisa e lê somente projetos autorizados.</div></div>
+          <div class="comparison-row" role="row"><div role="cell">Alterações</div><div role="cell">Produz instruções, patches ou arquivos para você aplicar.</div><div role="cell">Edita diretamente com gravação atômica, diff e reversão.</div></div>
+          <div class="comparison-row" role="row"><div role="cell">Terminal e builds</div><div role="cell">Não executa comandos no seu computador.</div><div role="cell">Executa comandos controlados, acompanha processos e coleta saída.</div></div>
+          <div class="comparison-row" role="row"><div role="cell">Validação</div><div role="cell">Pode sugerir testes, mas não comprova o estado local.</div><div role="cell">Roda testes, builds e inspeções e registra as evidências.</div></div>
+          <div class="comparison-row" role="row"><div role="cell">Segurança local</div><div role="cell">Não possui acesso ao computador por padrão.</div><div role="cell">Acesso confinado por projeto, modos, permissões e auditoria.</div></div>
+          <div class="comparison-row" role="row"><div role="cell">Melhor uso</div><div role="cell">Pesquisa, escrita, planejamento, análise e orientação.</div><div role="cell">Implementação, manutenção, depuração, testes e releases locais.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section setup-section" id="instalacao">
+      <div class="shell setup-layout">
+        <aside class="setup-aside">
+          <p class="eyebrow">Configuração completa</p>
+          <h2>Da instalação ao primeiro comando executado.</h2>
+          <p>Siga a sequência uma única vez. O indicador acompanha a etapa que está na tela para você não se perder.</p>
+          <div class="setup-progress" aria-label="Progresso da configuração">
+            <div><span id="setup-progress-text">Etapa 1 de 10</span><strong id="setup-progress-title">Baixar o ACode</strong></div>
+            <span class="setup-progress-track" aria-hidden="true"><span id="setup-progress-bar"></span></span>
+          </div>
+          <div class="requirements">
+            <strong>Antes de começar</strong>
+            <ul>
+              <li>Windows 10 ou 11, 64 bits</li>
+              <li>ChatGPT web ou desktop com Plugins e Modo de desenvolvedor disponíveis</li>
+              <li>PowerShell ou Windows Terminal para instalar o cloudflared</li>
+            </ul>
+          </div>
+        </aside>
+
+        <ol class="setup-steps">
+          <li data-step="1" data-step-title="Baixar o ACode">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Baixe o ACode diretamente</h3>
+              <p>O botão abaixo aponta para o arquivo oficial da release mais recente. O download começa imediatamente, sem abrir a página do GitHub. Use o Setup para instalação normal; a versão Portable é opcional.</p>
+              <div class="step-actions">
+                <a class="button primary download-button" id="download-setup" href="https://github.com/mqteuss/acode-desktop/releases/latest/download/ACode-Setup-x64.exe" download data-download="ACode-Setup-x64.exe">Baixar para Windows <span aria-hidden="true">↓</span></a>
+                <a class="text-link download-link" id="download-portable" href="https://github.com/mqteuss/acode-desktop/releases/latest/download/ACode-Portable-x64.exe" download data-download="ACode-Portable-x64.exe">Baixar versão Portable</a>
+              </div>
+              <p class="step-note">O navegador pode exibir o progresso na área de downloads. Não é necessário entrar no GitHub para instalar.</p>
+            </div>
+          </li>
+          <li data-step="2" data-step-title="Verificar integridade">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Confira a integridade do arquivo</h3>
+              <p>Baixe o manifesto da mesma release e compare o SHA-256 no PowerShell.</p>
+              <div class="command-row"><code>Get-FileHash .\ACode-Setup-x64.exe -Algorithm SHA256</code><button type="button" class="copy-button" data-copy="Get-FileHash .\ACode-Setup-x64.exe -Algorithm SHA256">Copiar</button></div>
+              <a class="text-link download-link" id="download-checksums" href="https://github.com/mqteuss/acode-desktop/releases/latest/download/SHA256SUMS.txt" download data-download="SHA256SUMS.txt">Baixar SHA256SUMS.txt</a>
+            </div>
+          </li>
+          <li data-step="3" data-step-title="Instalar o ACode">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Instale e abra o ACode</h3>
+              <p>Execute o Setup, escolha a pasta de instalação e conclua o assistente. Na primeira abertura, o servidor MCP fica restrito a <code>127.0.0.1</code>.</p>
+            </div>
+          </li>
+          <li data-step="4" data-step-title="Instalar o cloudflared">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Instale o cloudflared pelo PowerShell</h3>
+              <p>Abra o <strong>PowerShell</strong> ou o <strong>Windows Terminal</strong>, cole o comando e aguarde a conclusão. O WinGet seleciona o pacote oficial pelo identificador exato.</p>
+              <div class="command-row featured-command"><code>winget install --id Cloudflare.cloudflared -e --source winget</code><button type="button" class="copy-button" data-copy="winget install --id Cloudflare.cloudflared -e --source winget">Copiar comando</button></div>
+              <p>Depois, feche e abra novamente o terminal e confirme a instalação:</p>
+              <div class="command-row"><code>cloudflared --version</code><button type="button" class="copy-button" data-copy="cloudflared --version">Copiar</button></div>
+              <div class="step-actions"><a class="text-link external" href="https://developers.cloudflare.com/tunnel/downloads/" target="_blank" rel="noreferrer">Usar o instalador oficial manualmente</a></div>
+              <p class="step-note">O ACode não instala nem armazena credenciais da Cloudflare. Ele apenas inicia o executável instalado por você.</p>
+            </div>
+          </li>
+          <li data-step="5" data-step-title="Autorizar o projeto">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>Autorize somente a pasta do projeto</h3>
+              <p>No ACode, clique em <strong>Novo projeto</strong>, selecione a pasta exata do projeto e comece no modo <strong>Assistido</strong>. Não autorize o disco inteiro, a pasta do usuário ou diretórios de credenciais.</p>
+            </div>
+          </li>
+          <li data-step="6" data-step-title="Iniciar o túnel">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h3>Inicie o túnel HTTPS</h3>
+              <p>Abra <strong>Configurações → Conexão</strong>, selecione <strong>Cloudflare</strong> e inicie o túnel. Para testar, use o Quick Tunnel. O ACode mostrará uma URL HTTPS já contendo o caminho MCP protegido.</p>
+              <p class="step-note">Quick Tunnels recebem um endereço novo quando reiniciam. Para manter a mesma URL no ChatGPT, configure posteriormente um túnel nomeado e um hostname fixo.</p>
+            </div>
+          </li>
+          <li data-step="7" data-step-title="Copiar o endpoint">
+            <div class="step-number">7</div>
+            <div class="step-content">
+              <h3>Copie o endpoint MCP completo</h3>
+              <p>Na tela de Conexão, use o botão de copiar. O formato será semelhante a:</p>
+              <div class="command-row static"><code>https://seu-tunel.example/mcp/SEU_TOKEN_ALEATORIO</code></div>
+              <p class="step-warning">Trate essa URL como uma senha: não publique, não envie em prints e regenere o token se houver exposição.</p>
+            </div>
+          </li>
+          <li data-step="8" data-step-title="Ativar o modo desenvolvedor">
+            <div class="step-number">8</div>
+            <div class="step-content">
+              <h3>Ative o Modo de desenvolvedor no ChatGPT</h3>
+              <p>No ChatGPT, abra <strong>Configurações → Apps → Configurações avançadas</strong> e ative <strong>Modo de desenvolvedor</strong>. Em workspaces gerenciados, o administrador pode precisar liberar essa opção antes.</p>
+              <a class="text-link external" href="https://help.openai.com/pt-br/articles/12584461-developer-mode-and-full-mcp-connectors-in-chatgpt-beta" target="_blank" rel="noreferrer">Ver requisitos oficiais do Modo de desenvolvedor</a>
+            </div>
+          </li>
+          <li data-step="9" data-step-title="Criar o plugin">
+            <div class="step-number">9</div>
+            <div class="step-content">
+              <h3>Abra Plugins e clique em Criar plugin</h3>
+              <p>No ChatGPT, entre na aba <strong>Plugins</strong> pela barra lateral ou por <strong>Configurações → Plugins</strong>. Clique em <strong>Criar plugin</strong> e use o fluxo para configurar a integração MCP do ACode.</p>
+              <p class="step-note">A OpenAI migrou o diretório de Apps para Plugins. Em algumas contas, a configuração técnica do servidor ainda aparece em <strong>Apps → Criar</strong>; use essa opção quando o ChatGPT encaminhar você para o app subjacente.</p>
+              <a class="text-link external" href="https://help.openai.com/pt-br/articles/20001256-plugins-in-codex" target="_blank" rel="noreferrer">Entender Plugins e Apps no ChatGPT</a>
+              <dl class="configuration-list">
+                <div><dt>Nome</dt><dd>ACode</dd></div>
+                <div><dt>Descrição</dt><dd>Acessa projetos locais autorizados para pesquisar, editar, executar, testar e compilar.</dd></div>
+                <div><dt>URL do servidor MCP</dt><dd>Cole o endpoint HTTPS completo copiado do ACode.</dd></div>
+                <div><dt>Autenticação</dt><dd>Sem autenticação adicional; o endpoint já possui um token aleatório no caminho.</dd></div>
+              </dl>
+              <p>Selecione <strong>Verificar ferramentas</strong>, aguarde o catálogo ser reconhecido e conclua em <strong>Criar</strong>. O plugin passa a usar o app MCP configurado com o endpoint do ACode.</p>
+            </div>
+          </li>
+          <li data-step="10" data-step-title="Testar a conexão">
+            <div class="step-number">10</div>
+            <div class="step-content">
+              <h3>Adicione o plugin ACode à conversa e faça o teste seguro</h3>
+              <p>Abra uma nova conversa, escolha o ACode no menu de Plugins ou mencione <strong>@ACode</strong> quando essa opção estiver disponível. Envie primeiro:</p>
+              <div class="command-row prompt"><code>Use o ACode para listar meus projetos autorizados. Não altere nenhum arquivo.</code><button type="button" class="copy-button" data-copy="Use o ACode para listar meus projetos autorizados. Não altere nenhum arquivo.">Copiar</button></div>
+              <p>Depois, peça para abrir um projeto e ler o contexto. Por último, crie um arquivo de teste. No modo Assistido, a alteração deverá aparecer no painel local para sua aprovação.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section security-section" id="seguranca">
+      <div class="shell security-panel">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Segurança por arquitetura</p>
+          <h2>O renderer não recebe acesso irrestrito ao computador.</h2>
+          <p>As operações privilegiadas ficam no processo principal e passam por validação de schema, política de risco, permissão do projeto e auditoria.</p>
+        </div>
+        <div class="security-grid">
+          <article><h3>Workspace confinado</h3><p>Caminhos absolutos, traversal, hard links suspeitos e escapes por symlink são bloqueados.</p></article>
+          <article><h3>Arquivos sensíveis</h3><p><code>.env</code>, chaves privadas e diretórios de credenciais são protegidos por padrão.</p></article>
+          <article><h3>Endpoint protegido</h3><p>Servidor local em loopback, token aleatório de 192 bits e comparação em tempo constante.</p></article>
+          <article><h3>Atualização verificada</h3><p>Somente release estável, hosts do GitHub permitidos, tamanho limitado e SHA-256 obrigatório.</p></article>
+        </div>
+        <div class="security-recommendation"><strong>Recomendação inicial</strong><span>Use Git, mantenha backups e deixe o primeiro projeto no modo Assistido até entender o fluxo de aprovações.</span></div>
+      </div>
+    </section>
+
+    <section class="section limits-section" id="limites">
+      <div class="shell limits-grid">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Sobre os 128 MB</p>
+          <h2>É um teto de proteção, não um limite para o seu computador.</h2>
+          <p>O ACode permite que você escolha os valores em Configurações → Execução. Os tetos evitam que arquivos hostis ou logs infinitos esgotem memória e contexto.</p>
+        </div>
+        <dl class="limit-list">
+          <div><dt>Arquivo aceito por operação</dt><dd>Configurável até 1 GB por arquivo.</dd></div>
+          <div><dt>Leitura enviada ao ChatGPT</dt><dd>Configurável até 128 MB por chamada; não limita o projeto no disco.</dd></div>
+          <div><dt>Histórico do terminal</dt><dd>Configurável até 128 MB para cada canal de cada processo.</dd></div>
+          <div><dt>RAM, CPU e build</dt><dd>Não são limitados por esses campos; seguem os recursos normais do sistema.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section update-section">
+      <div class="shell update-panel">
+        <div><p class="eyebrow">Atualizações futuras</p><h2>O próprio ACode avisa quando uma release nova estiver disponível.</h2></div>
+        <ol>
+          <li>Consulta a release estável mais recente no repositório configurado.</li>
+          <li>Exibe uma notificação discreta com versão e notas.</li>
+          <li>Baixa somente após sua confirmação.</li>
+          <li>Compara tamanho e SHA-256 antes de liberar o instalador.</li>
+          <li>Abre o Setup e encerra o app para concluir a atualização.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <a class="footer-brand" href="#inicio"><img src="assets/acode-logo.png" alt="ACode" width="86" height="86"></a>
+      <p>Criado por <a href="https://x.com/mqteus07" target="_blank" rel="noreferrer">@mqteus07</a> com ACode/ChatGPT.</p>
+      <div class="footer-links"><a href="#instalacao">Instalação</a><a href="PRIVACY.md">Privacidade</a><a href=".well-known/security.txt">Segurança</a></div>
+    </div>
+  </footer>
+
+  <dialog class="image-dialog" id="image-preview-dialog" aria-labelledby="image-preview-title">
+    <div class="image-dialog-panel">
+      <div class="image-dialog-header">
+        <div><p class="eyebrow">Visual do produto</p><h2 id="image-preview-title">Captura ampliada</h2></div>
+        <button class="dialog-close" id="image-preview-close" type="button" aria-label="Fechar captura ampliada">×</button>
+      </div>
+      <img id="image-preview-content" src="assets/product-overview.png" alt="">
+      <p id="image-preview-caption"></p>
+    </div>
+  </dialog>
+</body>
+</html>

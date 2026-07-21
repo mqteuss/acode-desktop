@@ -1,0 +1,56 @@
+﻿# Deploy local da Vercel
+.vercel/
+
+# Segredos e credenciais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+id_rsa*
+credentials*
+secrets*
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Logs, caches e builds
+*.log
+node_modules/
+dist/
+out/
+build/
+coverage/
+.cache/
+.tmp/
+temp/
+
+# Código-fonte e artefatos do aplicativo desktop
+src/
+tests/
+scripts/
+release*/
+*.ts
+*.tsx
+*.jsx
+*.cjs
+*.mjs
+*.exe
+*.msi
+*.asar
+*.map
+*.zip
+*.7z
+*.tar
+*.gz
+package.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+tsconfig*.json
