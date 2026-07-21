@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#080a0b">
-  <meta name="description" content="ACode conecta o ChatGPT aos seus projetos locais com permissões explícitas, terminal controlado, histórico reversível e validação real.">
-  <meta property="og:title" content="ACode — ChatGPT executando no seu projeto local">
-  <meta property="og:description" content="Inspecione, edite, teste e compile projetos locais com controle, evidências e segurança por arquitetura.">
+  <meta name="theme-color" content="#07090d">
+  <meta name="description" content="Use o ChatGPT Plus ou Pro para trabalhar diretamente nos seus projetos locais com 115 ferramentas MCP, execução real e os limites normais do seu plano.">
+  <meta property="og:title" content="ACode — transforme o ChatGPT em um agente local">
+  <meta property="og:description" content="Edite, execute, teste e compile projetos locais usando os modelos e limites normais do ChatGPT Plus ou Pro.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/product-overview.png">
   <meta name="twitter:card" content="summary_large_image">
-  <title>ACode — Download e configuração completa</title>
+  <title>ACode — ChatGPT trabalhando no seu projeto local</title>
   <link rel="icon" href="assets/acode-icon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="effects.css">
@@ -31,6 +31,7 @@
         <img src="assets/acode-logo.png" alt="ACode" width="116" height="116">
       </a>
       <nav aria-label="Navegação principal">
+        <a href="#planos">Planos</a>
         <a href="#produto">Produto</a>
         <a href="#comparativo">Comparativo</a>
         <a href="#instalacao">Configuração</a>
@@ -44,19 +45,19 @@
     <section class="hero section">
       <div class="shell hero-grid">
         <div class="hero-copy reveal" data-reveal>
-          <p class="eyebrow">ACode 1.0 · Windows x64</p>
-          <h1>Seu projeto local.<br><span>O ChatGPT executando de verdade.</span></h1>
-          <p class="hero-lead">O ACode é a ponte local que permite ao ChatGPT pesquisar arquivos, editar código, executar terminal, testar, compilar e entregar artefatos apenas dentro das pastas que você autorizou.</p>
+          <p class="eyebrow">ACode 1.0 · ChatGPT Plus e Pro · Windows x64</p>
+          <h1>Transforme o ChatGPT em um <span>agente local.</span></h1>
+          <p class="hero-lead">O ACode conecta as conversas comuns do ChatGPT ao seu computador. Você pesquisa, edita, executa, testa e compila projetos reais usando os modelos e os limites normais do seu plano — sem depender da cota separada do Codex.</p>
           <div class="hero-actions">
             <a class="button primary" href="#instalacao">Instalar e configurar</a>
-            <a class="button secondary" href="#comparativo">Comparar experiências</a>
+            <a class="button secondary" href="#planos">Ver limites e modelos</a>
           </div>
-          <ul class="trust-list" aria-label="Destaques">
-            <li>115 ferramentas MCP</li>
-            <li>Permissões por projeto</li>
-            <li>Alterações reversíveis</li>
-            <li>Testes verificáveis</li>
-          </ul>
+          <div class="hero-metrics" aria-label="Diferenciais de uso">
+            <div><strong>160</strong><span>mensagens a cada 3 horas no Plus com GPT-5.5 Instant</span></div>
+            <div><strong>3.000</strong><span>mensagens por semana em raciocínio manual no Plus</span></div>
+            <div><strong>5× ou 20×</strong><span>mais franquia total nos níveis Pro</span></div>
+          </div>
+          <p class="data-note">Dados oficiais consultados em julho de 2026. Limites podem variar ou ser atualizados pela OpenAI.</p>
         </div>
         <figure class="product-frame hero-product reveal" data-reveal>
           <button class="image-preview-button" id="preview-overview" type="button" data-preview="assets/product-overview.png" data-preview-alt="Interface do ACode exibindo uma conversa operacional e arquivos alterados" data-preview-caption="Execução observável: conversa, progresso, validações e arquivos alterados no projeto selecionado." aria-label="Ampliar captura da interface principal do ACode">
@@ -71,7 +72,70 @@
     <section class="section compact-section" aria-label="Princípio do produto">
       <div class="shell principle">
         <span class="principle-index">01</span>
-        <p>O ChatGPT continua sendo a inteligência. O ACode fornece acesso local controlado, execução real e provas do resultado.</p>
+        <p>O ChatGPT continua sendo a inteligência. O ACode acrescenta acesso local controlado, execução real e evidências sem criar um limite especial para o plugin.</p>
+      </div>
+    </section>
+
+    <section class="section plans-section" id="planos">
+      <div class="shell">
+        <div class="section-heading plans-heading">
+          <p class="eyebrow">O diferencial que muda o uso diário</p>
+          <h2>Use o ACode com a franquia normal do ChatGPT.</h2>
+          <p>Apps personalizados por MCP seguem os limites normais do ChatGPT para o plano e o modelo selecionado. O ACode não é o Modo Agente de 40 ou 400 solicitações mensais e não é uma tarefa do Codex cobrada pelo pool agentivo.</p>
+        </div>
+
+        <div class="plan-grid">
+          <article class="plan-card" id="plan-plus">
+            <div class="plan-card-header">
+              <div><p class="plan-kicker">Para uso diário</p><h3>ChatGPT Plus</h3></div>
+              <span class="plan-price">US$ 20/mês</span>
+            </div>
+            <p class="plan-summary">Uma franquia muito maior do que o Modo Agente para desenvolvimento contínuo em conversas comuns.</p>
+            <dl class="plan-facts">
+              <div><dt>GPT-5.5 Instant</dt><dd><strong>Até 160 mensagens</strong> a cada 3 horas.</dd></div>
+              <div><dt>GPT-5.6 Sol</dt><dd>Raciocínio <strong>Médio e Alto</strong> com ACode.</dd></div>
+              <div><dt>Raciocínio manual</dt><dd><strong>Até 3.000 mensagens por semana</strong>, com fallback após a franquia.</dd></div>
+              <div><dt>ACode por MCP</dt><dd>Pesquisa, edição, terminal, testes, build e artefatos.</dd></div>
+            </dl>
+          </article>
+
+          <article class="plan-card featured-plan" id="plan-pro">
+            <div class="plan-card-header">
+              <div><p class="plan-kicker">Para trabalho intenso</p><h3>ChatGPT Pro</h3></div>
+              <span class="plan-price">US$ 100 ou 200/mês</span>
+            </div>
+            <p class="plan-summary">Mais espaço para sessões longas, múltiplas iterações e projetos maiores sem abandonar o fluxo do ChatGPT.</p>
+            <dl class="plan-facts">
+              <div><dt>Pro de US$ 100</dt><dd><strong>5× mais uso</strong> do que o Plus.</dd></div>
+              <div><dt>Pro de US$ 200</dt><dd><strong>20× mais uso</strong> do que o Plus.</dd></div>
+              <div><dt>GPT-5.6 Sol</dt><dd>Médio, Alto e <strong>Extra alto</strong> com ACode.</dd></div>
+              <div><dt>Compatibilidade</dt><dd>O modelo GPT-5.6 Sol Pro não aceita apps; use Sol Extra alto com o ACode.</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="usage-comparison" id="usage-comparison">
+          <div class="usage-comparison-copy">
+            <p class="eyebrow">Não confunda os produtos</p>
+            <h3>ACode em conversa normal não usa o limite mensal do Modo Agente.</h3>
+            <p>O Modo Agente possui 40 solicitações mensais no Plus e 400 no Pro. Ao usar o ACode como app MCP em uma conversa normal, valem os limites normais do modelo escolhido.</p>
+            <p class="codex-note">O Codex continua sendo uma experiência própria, com pool agentivo e créditos baseados em tokens. O ACode oferece outro caminho: execução local dentro da conversa comum do ChatGPT.</p>
+          </div>
+          <div class="usage-bars" aria-label="Escala ilustrativa dos limites publicados">
+            <div><span>Modo Agente Plus</span><strong>40/mês</strong><i class="usage-8"></i></div>
+            <div><span>Modo Agente Pro</span><strong>400/mês</strong><i class="usage-24"></i></div>
+            <div><span>ACode + Plus Instant</span><strong>160/3h</strong><i class="usage-68"></i></div>
+            <div><span>ACode + Plus raciocínio</span><strong>3.000/semana</strong><i class="usage-100"></i></div>
+          </div>
+        </div>
+
+        <div class="official-sources">
+          <strong>Fontes oficiais</strong>
+          <a href="https://help.openai.com/pt-br/articles/11487775-conectores-no-chatgpt" target="_blank" rel="noreferrer">Apps e limites normais do ChatGPT</a>
+          <a href="https://help.openai.com/pt-br/articles/20001354-gpt-56-in-chatgpt" target="_blank" rel="noreferrer">Modelos GPT-5.6 por plano</a>
+          <a href="https://help.openai.com/pt-br/articles/11909943-gpt-53-and-gpt-55-in-chatgpt" target="_blank" rel="noreferrer">Franquia semanal de raciocínio</a>
+          <a href="https://help.openai.com/pt-br/articles/9793128" target="_blank" rel="noreferrer">Níveis Pro e franquias</a>
+        </div>
       </div>
     </section>
 
@@ -113,7 +177,7 @@
       <div class="shell">
         <div class="section-heading narrow">
           <p class="eyebrow">Comparativo direto</p>
-          <h2>ChatGPT no navegador e ChatGPT usando ACode não são a mesma experiência.</h2>
+          <h2>O mesmo ChatGPT, agora capaz de concluir o trabalho local.</h2>
           <p>O ACode não substitui o ChatGPT. Ele adiciona uma camada local de ferramentas, segurança e execução.</p>
         </div>
         <div class="comparison-table" role="table" aria-label="Comparação entre ChatGPT sozinho e ChatGPT com ACode">
@@ -127,6 +191,7 @@
           <div class="comparison-row" role="row"><div role="cell">Terminal e builds</div><div role="cell">Não executa comandos no seu computador.</div><div role="cell">Executa comandos controlados, acompanha processos e coleta saída.</div></div>
           <div class="comparison-row" role="row"><div role="cell">Validação</div><div role="cell">Pode sugerir testes, mas não comprova o estado local.</div><div role="cell">Roda testes, builds e inspeções e registra as evidências.</div></div>
           <div class="comparison-row" role="row"><div role="cell">Segurança local</div><div role="cell">Não possui acesso ao computador por padrão.</div><div role="cell">Acesso confinado por projeto, modos, permissões e auditoria.</div></div>
+          <div class="comparison-row" role="row"><div role="cell">Limites de uso</div><div role="cell">Seguem o modelo e o plano selecionado.</div><div role="cell">Os mesmos limites normais do ChatGPT; não há uma cota adicional do ACode.</div></div>
           <div class="comparison-row" role="row"><div role="cell">Melhor uso</div><div role="cell">Pesquisa, escrita, planejamento, análise e orientação.</div><div role="cell">Implementação, manutenção, depuração, testes e releases locais.</div></div>
         </div>
       </div>
@@ -139,7 +204,7 @@
           <h2>Da instalação ao primeiro comando executado.</h2>
           <p>Siga a sequência uma única vez. O indicador acompanha a etapa que está na tela para você não se perder.</p>
           <div class="setup-progress" aria-label="Progresso da configuração">
-            <div><span id="setup-progress-text">Etapa 1 de 10</span><strong id="setup-progress-title">Baixar o ACode</strong></div>
+            <div><span id="setup-progress-text">Etapa 1 de 11</span><strong id="setup-progress-title">Baixar o ACode</strong></div>
             <span class="setup-progress-track" aria-hidden="true"><span id="setup-progress-bar"></span></span>
           </div>
           <div class="requirements">
@@ -241,8 +306,21 @@
               <p>Selecione <strong>Verificar ferramentas</strong>, aguarde o catálogo ser reconhecido e conclua em <strong>Criar</strong>. O plugin passa a usar o app MCP configurado com o endpoint do ACode.</p>
             </div>
           </li>
-          <li data-step="10" data-step-title="Testar a conexão">
+          <li data-step="10" data-step-title="Liberar ações autônomas">
             <div class="step-number">10</div>
+            <div class="step-content">
+              <h3>Ative Permitir todas as ações no Gerenciar plugin</h3>
+              <p>Abra <strong>Plugins → ACode → Gerenciar plugin</strong>. Em <strong>Controle de ações</strong>, selecione <strong>Permitir todas as ações</strong>. Depois, em <strong>Pedir permissão</strong>, escolha <strong>Nunca perguntar</strong> quando essa opção estiver disponível.</p>
+              <p class="step-note">Em algumas contas, a escolha persistente aparece como <strong>Sempre permitir</strong> na primeira aprovação. Essa opção equivale a deixar o app executar ações futuras sem novas confirmações.</p>
+              <div class="autonomy-callout">
+                <strong>Para uma experiência realmente autônoma</strong>
+                <span>Combine essa permissão no ChatGPT com o modo Autônomo do projeto no ACode. As proteções de confinamento, arquivos sensíveis e auditoria continuam ativas.</span>
+              </div>
+              <p class="step-warning">Use essa configuração apenas em projetos que você autorizou conscientemente. Ela reduz as confirmações do ChatGPT, mas não amplia as pastas que o ACode pode acessar.</p>
+            </div>
+          </li>
+          <li data-step="11" data-step-title="Testar a conexão">
+            <div class="step-number">11</div>
             <div class="step-content">
               <h3>Adicione o plugin ACode à conversa e faça o teste seguro</h3>
               <p>Abra uma nova conversa, escolha o ACode no menu de Plugins ou mencione <strong>@ACode</strong> quando essa opção estiver disponível. Envie primeiro:</p>

@@ -36,7 +36,7 @@ body.dialog-open {
 
 .site-header.is-scrolled {
   border-bottom-color: var(--line-strong);
-  background: rgba(8, 10, 11, .985);
+  background: rgba(7, 9, 13, .985);
   box-shadow: 0 10px 40px rgba(0, 0, 0, .18);
 }
 
@@ -81,11 +81,11 @@ body.dialog-open {
 }
 
 .button.primary {
-  box-shadow: 0 0 0 0 rgba(98, 238, 145, 0);
+  box-shadow: 0 0 0 0 rgba(125, 164, 255, 0);
 }
 
 .button.primary:hover {
-  box-shadow: 0 0 0 5px rgba(98, 238, 145, .09);
+  box-shadow: 0 0 0 5px rgba(125, 164, 255, .09);
 }
 
 .download-button span {
@@ -98,7 +98,9 @@ body.dialog-open {
 }
 
 .download-button.is-started {
-  background: #80f3a5;
+  background: #7be2a6;
+  border-color: var(--success);
+  color: var(--success-ink);
 }
 
 .download-toast {
@@ -112,15 +114,15 @@ body.dialog-open {
   align-items: center;
   gap: 12px;
   padding: 14px 16px;
-  border: 1px solid #285b38;
+  border: 1px solid #2e6545;
   border-radius: 10px;
-  background: #0b160f;
+  background: #0b1711;
   box-shadow: var(--shadow);
   animation: toast-in .22s ease both;
 }
 
 .download-toast[hidden] { display: none; }
-.download-toast-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 800; }
+.download-toast-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--success); color: var(--success-ink); font-weight: 800; }
 .download-toast strong, .download-toast small { display: block; }
 .download-toast strong { font-size: .84rem; }
 .download-toast small { margin-top: 2px; color: #9eaea3; font-size: .72rem; }
@@ -155,7 +157,7 @@ body.dialog-open {
 }
 
 .comparison-row:not(.comparison-head):hover > div:nth-child(3) {
-  background: #0d1711;
+  background: rgba(125, 164, 255, .06);
 }
 
 .image-preview-button {
@@ -192,7 +194,7 @@ body.dialog-open {
   padding: 0 11px;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
-  background: rgba(8, 10, 11, .92);
+  background: rgba(7, 9, 13, .92);
   color: var(--text);
   font-size: .7rem;
   font-weight: 700;
@@ -250,13 +252,13 @@ body.dialog-open {
 }
 
 .setup-steps > li.is-current::before { transform: scaleY(1); }
-.setup-steps > li.is-current .step-number { border-color: var(--accent); background: rgba(98, 238, 145, .08); box-shadow: 0 0 0 5px rgba(98, 238, 145, .05); }
-.featured-command { border-color: #285b38; background: #09110c; }
+.setup-steps > li.is-current .step-number { border-color: var(--accent); background: rgba(125, 164, 255, .08); box-shadow: 0 0 0 5px rgba(125, 164, 255, .05); }
+.featured-command { border-color: #36517f; background: #0b111b; }
 
 .copy-button.is-copied {
-  border-color: var(--accent);
-  background: #0e1b13;
-  color: var(--accent);
+  border-color: var(--success);
+  background: rgba(103, 217, 154, .07);
+  color: var(--success);
 }
 
 .image-dialog {
@@ -299,3 +301,11 @@ body.dialog-open {
   .download-toast, .image-dialog[open] { animation: none; }
   .image-preview-button img, .hero-product { transform: none !important; }
 }
+
+
+.download-button.button.primary {
+  border-color: var(--success);
+  background: var(--success);
+  color: var(--success-ink);
+}
+.download-button.button.primary:hover { background: #7be2a6; }
