@@ -1,6 +1,8 @@
 const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 let reducedMotion = reducedMotionQuery.matches;
 
+if (!reducedMotion) document.documentElement.classList.add('motion-ready');
+
 function copyTextFallback(value) {
   const input = document.createElement('textarea');
   input.value = value;
@@ -35,10 +37,12 @@ for (const button of document.querySelectorAll('[data-copy]')) {
 
 const header = document.querySelector('.site-header');
 const scrollProgress = document.querySelector('#scroll-progress-bar');
-const navLinks = [...document.querySelectorAll('.header-inner nav a[href^="#"]')];
+const nav = document.querySelector('#primary-navigation');
+const navLinks = [...document.querySelectorAll('#primary-navigation a[href^="#"]')];
 const navigationSections = navLinks
   .map((link) => document.querySelector(link.getAttribute('href')))
   .filter(Boolean);
+const mobileMenuButton = document.querySelector('#mobile-menu-button');
 const setupSection = document.querySelector('#instalacao');
 const setupSteps = [...document.querySelectorAll('.setup-steps > li[data-step]')];
 const setupProgressText = document.querySelector('#setup-progress-text');
@@ -47,6 +51,20 @@ const setupProgressBar = document.querySelector('#setup-progress-bar');
 let activeNavigationSection = null;
 let activeSetupStep = null;
 let scrollFrame = 0;
+
+function setMenuOpen(open) {
+  if (!nav || !mobileMenuButton) return;
+  nav.dataset.open = String(open);
+  mobileMenuButton.setAttribute('aria-expanded', String(open));
+  mobileMenuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  document.body.classList.toggle('nav-open', open);
+}
+
+mobileMenuButton?.addEventListener('click', () => {
+  setMenuOpen(mobileMenuButton.getAttribute('aria-expanded') !== 'true');
+});
+
+for (const link of navLinks) link.addEventListener('click', () => setMenuOpen(false));
 
 function setActiveNavigation(section) {
   if (section === activeNavigationSection) return;
@@ -130,23 +148,21 @@ function requestScrollUpdate() {
 }
 
 window.addEventListener('scroll', requestScrollUpdate, { passive: true });
-window.addEventListener('resize', requestScrollUpdate, { passive: true });
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 820) setMenuOpen(false);
+  requestScrollUpdate();
+}, { passive: true });
 setCurrentStep(setupSteps[0]);
 updateScrollState();
 
-const revealTargets = [...new Set(document.querySelectorAll([
-  '[data-reveal]',
-  '.section-heading',
-  '.visual-pair',
-  '.comparison-table',
-  '.security-panel',
-  '.limits-grid',
-  '.update-panel'
-].join(',')))];
+const revealTargets = [...new Set([
+  ...document.querySelectorAll('[data-reveal]'),
+  ...[...document.querySelectorAll('[data-reveal-group]')].flatMap((group) => [...group.children])
+])];
 const revealedElements = new WeakSet();
 let revealObserver = null;
 
-function revealElement(element) {
+function revealElement(element, entryIndex = 0) {
   if (revealedElements.has(element)) return;
   revealedElements.add(element);
   element.dataset.revealed = 'true';
@@ -154,11 +170,13 @@ function revealElement(element) {
 
   element.style.willChange = 'opacity, transform';
   const animation = element.animate([
-    { opacity: 0.82, transform: 'translateY(10px)' },
+    { opacity: 0, transform: 'translateY(18px)' },
     { opacity: 1, transform: 'translateY(0)' }
   ], {
-    duration: 320,
-    easing: 'cubic-bezier(.2, .75, .25, 1)'
+    duration: 520,
+    delay: Math.min(entryIndex * 55, 220),
+    easing: 'cubic-bezier(.16, 1, .3, 1)',
+    fill: 'both'
   });
   animation.addEventListener('finish', () => {
     element.style.removeProperty('will-change');
@@ -175,39 +193,67 @@ function initializeRevealMotion() {
     return;
   }
 
-  const viewportBottom = window.innerHeight;
   const pendingTargets = [];
   for (const element of revealTargets) {
     const rect = element.getBoundingClientRect();
-    if (rect.top < viewportBottom && rect.bottom > 0) {
-      revealedElements.add(element);
-      element.dataset.revealed = 'true';
-    } else {
-      pendingTargets.push(element);
-    }
+    if (rect.top < window.innerHeight && rect.bottom > 0) revealElement(element);
+    else pendingTargets.push(element);
   }
 
   revealObserver = new IntersectionObserver((entries, observer) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      revealElement(entry.target);
+    entries.filter((entry) => entry.isIntersecting).forEach((entry, index) => {
+      revealElement(entry.target, index);
       observer.unobserve(entry.target);
-    }
-  }, { rootMargin: '0px 0px -6%', threshold: 0.08 });
+    });
+  }, { rootMargin: '0px 0px -8%', threshold: 0.08 });
+
   pendingTargets.forEach((element) => revealObserver.observe(element));
 }
 
 initializeRevealMotion();
-reducedMotionQuery.addEventListener?.('change', (event) => {
-  reducedMotion = event.matches;
-  if (!reducedMotion) return;
-  revealObserver?.disconnect();
-  document.getAnimations().forEach((animation) => animation.cancel());
-  revealTargets.forEach((element) => {
-    element.style.removeProperty('will-change');
-    element.dataset.revealed = 'true';
+
+const countTargets = [...document.querySelectorAll('[data-count]')];
+function animateCount(element) {
+  if (element.dataset.counted === 'true') return;
+  element.dataset.counted = 'true';
+  const target = Number(element.dataset.count || element.textContent || 0);
+  if (reducedMotion || !Number.isFinite(target)) {
+    element.textContent = String(target);
+    return;
+  }
+  const started = performance.now();
+  const duration = 780;
+  function frame(now) {
+    const progress = Math.min(1, (now - started) / duration);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    element.textContent = String(Math.round(target * eased));
+    if (progress < 1) window.requestAnimationFrame(frame);
+  }
+  element.textContent = '0';
+  window.requestAnimationFrame(frame);
+}
+
+if ('IntersectionObserver' in window && !reducedMotion) {
+  const countObserver = new IntersectionObserver((entries, observer) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      animateCount(entry.target);
+      observer.unobserve(entry.target);
+    }
+  }, { threshold: .7 });
+  countTargets.forEach((element) => countObserver.observe(element));
+} else {
+  countTargets.forEach(animateCount);
+}
+
+for (const card of document.querySelectorAll('[data-spotlight]')) {
+  card.addEventListener('pointermove', (event) => {
+    if (reducedMotion) return;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--spot-x', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--spot-y', `${event.clientY - rect.top}px`);
   });
-});
+}
 
 const downloadToast = document.querySelector('#download-toast');
 let downloadToastTimer = 0;
@@ -222,6 +268,15 @@ for (const link of document.querySelectorAll('[data-download]')) {
       link.classList.remove('is-started');
       link.removeAttribute('aria-label');
     }, 3600);
+  });
+}
+
+for (const item of document.querySelectorAll('.faq-list details')) {
+  item.addEventListener('toggle', () => {
+    if (!item.open) return;
+    for (const other of document.querySelectorAll('.faq-list details[open]')) {
+      if (other !== item) other.removeAttribute('open');
+    }
   });
 }
 
@@ -261,4 +316,20 @@ previewDialog?.addEventListener('close', () => {
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && previewDialog?.open) closePreview();
+  else if (event.key === 'Escape') setMenuOpen(false);
+});
+
+reducedMotionQuery.addEventListener?.('change', (event) => {
+  reducedMotion = event.matches;
+  document.documentElement.classList.toggle('motion-ready', !reducedMotion);
+  if (!reducedMotion) return;
+  revealObserver?.disconnect();
+  document.getAnimations().forEach((animation) => animation.cancel());
+  revealTargets.forEach((element) => {
+    element.style.removeProperty('will-change');
+    element.dataset.revealed = 'true';
+  });
+  countTargets.forEach((element) => {
+    element.textContent = element.dataset.count || element.textContent;
+  });
 });
